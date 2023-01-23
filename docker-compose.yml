@@ -8,3 +8,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - .:/workspace
+      - ansible-docker_ansible_homedir:/ansible
+
+volumes:
+  ansible-docker_ansible_homedir:
+    external: true
