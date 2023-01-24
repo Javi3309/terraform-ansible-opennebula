@@ -31,10 +31,6 @@ init:
 apply:
 	@docker compose run --rm terraform-ansible generar_clave.sh
 	@docker compose run --rm terraform-ansible terraform apply -auto-approve
-	@docker compose run --rm terraform-ansible /bin/sh -c "echo 'Esperando 10 segundos a que la máquina termine de arrancar...' && sleep 10"
-	@docker compose run --rm terraform-ansible comprobar_conexion.sh
-	@docker compose run --rm terraform-ansible leer_claves.sh
-	@docker compose run --rm terraform-ansible ansible-playbook -i remote_host_ip playbook.yml --extra-vars "UBUNTU_RELEASE=${UBUNTU_RELEASE}"
 
 show:
 	@docker compose run --rm terraform-ansible terraform show

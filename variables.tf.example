@@ -27,3 +27,7 @@ variable "opennebula_image_id" {
 variable "opennebula_network_id" {
   default = "yy"  # ciber_xx
 }
+
+variable "ubuntu_release" {
+  default = "jammy"
+}
