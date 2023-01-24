@@ -7,5 +7,5 @@ output "ip_privada" {
 }
 
 output "ip_publica" {
-  value = var.ip_publica[opennebula_virtual_machine.ubuntu.nic[0].computed_ip]
+  value = lookup(var.ip_publica, opennebula_virtual_machine.ubuntu.nic[0].computed_ip, "")
 }

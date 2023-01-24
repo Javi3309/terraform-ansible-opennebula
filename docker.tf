@@ -3,7 +3,7 @@
 locals {
   ips = join(",", [
     opennebula_virtual_machine.ubuntu.nic[0].computed_ip,
-    var.ip_publica[opennebula_virtual_machine.ubuntu.nic[0].computed_ip]
+    lookup(var.ip_publica, opennebula_virtual_machine.ubuntu.nic[0].computed_ip, "")
   ])
 }
 
