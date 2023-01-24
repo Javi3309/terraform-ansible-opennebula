@@ -10,7 +10,7 @@ resource "opennebula_virtual_machine" "ubuntu" {
 
   context = {
     START_SCRIPT   = "apt update"
-    SSH_PUBLIC_KEY = file("/ansible/.ssh/id_rsa.pub")
+    SSH_PUBLIC_KEY = file("~/.ssh/id_rsa.pub")
   }
 
   nic {

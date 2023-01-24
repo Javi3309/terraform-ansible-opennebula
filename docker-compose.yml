@@ -2,24 +2,15 @@ version: "3.5"
 
 services:
 
-  terraform:
+  terraform-ansible:
     build:
       context: .
-      dockerfile: Dockerfile.terraform
-    volumes:
-      - .:/workspace
-      - ansible_homedir:/ansible
-
-  ansible:
-    build:
-      context: .
-      dockerfile: Dockerfile.ansible
+      dockerfile: Dockerfile
       args:
         - ALPINE_VERSION=${ALPINE_VERSION}
     volumes:
-      - ansible_homedir:/root
-      - ./playbook.yml:/root/playbook.yml
-      - ./output/:/root/output
+      - .:/workspace
+      - homedir:/root
 
 volumes:
-  ansible_homedir:
+  homedir:

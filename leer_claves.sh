@@ -1,6 +1,6 @@
 #!/bin/sh
 
-IP=$(cat /root/remote_host_ip)
+IP=$(cat /workspace/remote_host_ip)
 
 ssh-keyscan "$IP" >~/.ssh/known_hosts 2>/dev/null
 
