@@ -4,6 +4,10 @@ terraform {
       source  = "OpenNebula/opennebula"
       version = "~> 1.0"
     }
+    local = {
+      source  = "hashicorp/local"
+      version = "2.3.0"
+    }
   }
 }
 

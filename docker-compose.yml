@@ -5,11 +5,21 @@ services:
   terraform:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.terraform
     volumes:
       - .:/workspace
-      - ansible-docker_ansible_homedir:/ansible
+      - ansible_homedir:/ansible
+
+  ansible:
+    build:
+      context: .
+      dockerfile: Dockerfile.ansible
+      args:
+        - ALPINE_VERSION=${ALPINE_VERSION}
+    volumes:
+      - ansible_homedir:/root
+      - ./playbook.yml:/root/playbook.yml
+      - ./output/:/root/output
 
 volumes:
-  ansible-docker_ansible_homedir:
-    external: true
+  ansible_homedir:
