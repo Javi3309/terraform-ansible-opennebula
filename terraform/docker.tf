@@ -15,7 +15,7 @@ resource "null_resource" "docker" {
   provisioner "local-exec" {
     command = <<EOT
       ANSIBLE_HOST_KEY_CHECKING=False \
-      ansible-playbook -i "${local.ips}" playbook.yml --extra-vars "UBUNTU_RELEASE=${var.ubuntu_release}"
+      ansible-playbook -i "${local.ips}" /ansible/playbook.yml --extra-vars "UBUNTU_RELEASE=${var.ubuntu_release}"
     EOT
   }
 }

@@ -4,12 +4,13 @@ services:
 
   terraform-ansible:
     build:
-      context: .
+      context: ./docker
       dockerfile: Dockerfile
       args:
         - ALPINE_VERSION=${ALPINE_VERSION}
     volumes:
-      - .:/workspace
+      - ./terraform:/workspace
+      - ./ansible:/ansible
       - homedir:/root
 
 volumes:
